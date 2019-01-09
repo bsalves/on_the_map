@@ -37,10 +37,6 @@ class UsersRequest {
                     }
                 }
                 
-                let str = String(data: data!, encoding: String.Encoding.utf8) as String?
-                let sliced = String((str?.dropFirst(5))!)
-                let finalData = sliced.data(using: String.Encoding.utf8)
-                
                 let decoded = try JSONDecoder().decode(UsersModel.self, from: data!)
                 
                 success(decoded)

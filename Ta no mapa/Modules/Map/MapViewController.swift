@@ -71,6 +71,7 @@ extension MapViewController: MKMapViewDelegate {
         
         pinAnnotationView.pinTintColor = .purple
         pinAnnotationView.animatesDrop = true
+        pinAnnotationView.canShowCallout = true
         
         return pinAnnotationView
     }
