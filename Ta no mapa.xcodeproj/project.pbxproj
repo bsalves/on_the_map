@@ -22,6 +22,9 @@
 		393DC3C221E4216100918B8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DC3C121E4216100918B8C /* LoginViewController.swift */; };
 		393DC3C421E4307100918B8C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DC3C321E4307100918B8C /* Session.swift */; };
 		393DC3C621E432FF00918B8C /* UsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DC3C521E432FF00918B8C /* UsersRequest.swift */; };
+		39EF407221E57FFA002B2B59 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF407121E57FFA002B2B59 /* UsersModel.swift */; };
+		39EF407421E58018002B2B59 /* UsersResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF407321E58018002B2B59 /* UsersResultModel.swift */; };
+		39EF407621E59059002B2B59 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF407521E59059002B2B59 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		393DC3C121E4216100918B8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		393DC3C321E4307100918B8C /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		393DC3C521E432FF00918B8C /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
+		39EF407121E57FFA002B2B59 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		39EF407321E58018002B2B59 /* UsersResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResultModel.swift; sourceTree = "<group>"; };
+		39EF407521E59059002B2B59 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 			children = (
 				393DC3AE21E41AAB00918B8C /* Login */,
 				393DC3A921E4177200918B8C /* Map */,
+				39EF407521E59059002B2B59 /* ListViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -192,6 +199,8 @@
 				393DC3B321E41AF100918B8C /* LoginModel.swift */,
 				393DC3B521E41BB100918B8C /* SessionModel.swift */,
 				393DC3B721E41C1100918B8C /* AccountModel.swift */,
+				39EF407121E57FFA002B2B59 /* UsersModel.swift */,
+				39EF407321E58018002B2B59 /* UsersResultModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -339,12 +348,15 @@
 			files = (
 				393DC3B821E41C1100918B8C /* AccountModel.swift in Sources */,
 				393DC3C621E432FF00918B8C /* UsersRequest.swift in Sources */,
+				39EF407621E59059002B2B59 /* ListViewController.swift in Sources */,
 				393DC37B21E415D600918B8C /* AppDelegate.swift in Sources */,
 				393DC3B421E41AF100918B8C /* LoginModel.swift in Sources */,
 				393DC3B621E41BB100918B8C /* SessionModel.swift in Sources */,
 				393DC3C221E4216100918B8C /* LoginViewController.swift in Sources */,
+				39EF407421E58018002B2B59 /* UsersResultModel.swift in Sources */,
 				393DC3AB21E4178800918B8C /* MapViewController.swift in Sources */,
 				393DC3BE21E41C9800918B8C /* LoginRequest.swift in Sources */,
+				39EF407221E57FFA002B2B59 /* UsersModel.swift in Sources */,
 				393DC3C421E4307100918B8C /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

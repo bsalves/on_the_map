@@ -29,12 +29,22 @@ class LoginViewController: UIViewController {
     private func success() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         self.present(vc!, animated: true, completion: nil)
-        loading.stopAnimating()
-        loading.isHidden = false
-        connectButton.isEnabled = true
+        
+        self.resetLoginForm()
+    }
+    
+    private func resetLoginForm() {
+        DispatchQueue.main.async {
+            self.loading.stopAnimating()
+            self.loading.isHidden = true
+            self.connectButton.isEnabled = true
+            self.username.text = ""
+            self.password.text = ""
+        }
     }
     
     @IBAction func login(_ sender: Any) {
+        self.view.endEditing(true)
         loading.isHidden = false
         loading.startAnimating()
         connectButton.setTitle("Conectando...", for: .disabled)
@@ -43,7 +53,12 @@ class LoginViewController: UIViewController {
         loginRequest.login(username: username.text ?? "", password: password.text ?? "", success: { [unowned self] (response) in
             self.success()
         }, errorResponse: { (error) in
-            print(error)
+            let alert = UIAlertController(title: nil, message: "Login inválido", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: {
+                self.resetLoginForm()
+            })
+            
         })
     }
 }

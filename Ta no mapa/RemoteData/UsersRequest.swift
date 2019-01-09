@@ -10,45 +10,46 @@ import Foundation
 
 class UsersRequest {
     
-    func users() {
+    func users(success: @escaping (UsersModel) -> Void, errorResponse: @escaping (String) -> Void) {
         
-//        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
-//        request.httpMethod = "POST"
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        request.httpMethod = "GET"
 //        request.addValue("application/json", forHTTPHeaderField: "Accept")
 //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: String.Encoding.utf8)
-//        
-//        let session = URLSession.shared
-//        
-//        let task = session.dataTask(with: request as URLRequest) { data, response, error in
-//            
-//            if error != nil {
-//                errorResponse(error!.localizedDescription)
-//                return
-//            }
-//            
-//            do {
-//                
-//                if let httpResponse = response as? HTTPURLResponse {
-//                    if httpResponse.statusCode == 403 {
-//                        errorResponse("Usuário inválido")
-//                        return
-//                    }
-//                }
-//                
-//                let str = String(data: data!, encoding: String.Encoding.utf8) as String?
-//                let sliced = String((str?.dropFirst(5))!)
-//                let finalData = sliced.data(using: String.Encoding.utf8)
-//                let decoded = try JSONDecoder().decode(LoginModel.Response.self, from: finalData!)
-//                
-//                Session.shared.data = decoded
-//                
-//                success(decoded)
-//            } catch {
-//            }
-//        }
-//        task.resume()
-//        
+        request.addValue(Session.shared.XParseApplicationId, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(Session.shared.XParseRESTAPIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
+            if error != nil {
+                errorResponse(error!.localizedDescription)
+                return
+            }
+            
+            do {
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 403 {
+                        errorResponse("Usuário inválido")
+                        return
+                    }
+                }
+                
+                let str = String(data: data!, encoding: String.Encoding.utf8) as String?
+                let sliced = String((str?.dropFirst(5))!)
+                let finalData = sliced.data(using: String.Encoding.utf8)
+                
+                let decoded = try JSONDecoder().decode(UsersModel.self, from: data!)
+                
+                success(decoded)
+            } catch {
+                errorResponse("Deu error")
+            }
+        }
+        task.resume()
+        
     }
     
 }

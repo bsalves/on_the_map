@@ -28,35 +28,6 @@
             </objects>
             <point key="canvasLocation" x="-774" y="-63"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="P46-nP-abZ">
-            <objects>
-                <tableViewController id="3Bl-YJ-8z5" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f8V-9J-WM7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XKl-yT-7JY">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XKl-yT-7JY" id="rul-x7-Qos">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="3Bl-YJ-8z5" id="I0Y-Ig-kWc"/>
-                            <outlet property="delegate" destination="3Bl-YJ-8z5" id="e5Y-qv-0QL"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Eeb-oT-as4"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p42-T4-PLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1321" y="360"/>
-        </scene>
         <!--lista-->
         <scene sceneID="KDK-KV-4gV">
             <objects>
@@ -67,12 +38,49 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="3Bl-YJ-8z5" kind="relationship" relationship="rootViewController" id="gc5-SG-jxa"/>
+                        <segue destination="KuK-w5-AyX" kind="relationship" relationship="rootViewController" id="Opp-WT-RZl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="it3-dD-WwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="367" y="360"/>
+        </scene>
+        <!--Ta no mapa-->
+        <scene sceneID="bkz-8R-vRK">
+            <objects>
+                <viewController id="KuK-w5-AyX" customClass="ListViewController" customModule="Ta_no_mapa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XZ0-be-kQG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-Vp-9Iu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bcK-Vp-9Iu" firstAttribute="bottom" secondItem="x0A-DC-DoQ" secondAttribute="bottom" id="OZS-kY-POe"/>
+                            <constraint firstItem="bcK-Vp-9Iu" firstAttribute="top" secondItem="x0A-DC-DoQ" secondAttribute="top" id="QAp-nW-heU"/>
+                            <constraint firstItem="bcK-Vp-9Iu" firstAttribute="leading" secondItem="x0A-DC-DoQ" secondAttribute="leading" id="dD4-Nh-Thn"/>
+                            <constraint firstItem="bcK-Vp-9Iu" firstAttribute="trailing" secondItem="x0A-DC-DoQ" secondAttribute="trailing" id="kJC-69-Brp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x0A-DC-DoQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ta no mapa" id="vWw-Gn-5p3">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="NyO-fP-Ikf">
+                            <connections>
+                                <action selector="logout:" destination="KuK-w5-AyX" id="3BT-qQ-jB7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="bcK-Vp-9Iu" id="ehQ-y4-u3y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2z-he-lX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205.5999999999999" y="358.4707646176912"/>
         </scene>
         <!--mapa-->
         <scene sceneID="egg-Oz-tNz">
@@ -91,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="368" y="-445"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Ta no mapa-->
         <scene sceneID="3uc-5q-uQ6">
             <objects>
                 <viewController id="gCb-C8-1kG" customClass="MapViewController" customModule="Ta_no_mapa" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,7 +120,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8WT-K1-NVa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jeu-TL-enC"/>
+                    <navigationItem key="navigationItem" title="Ta no mapa" id="jeu-TL-enC">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="xGF-kZ-DSV">
+                            <connections>
+                                <action selector="logout:" destination="gCb-C8-1kG" id="hHR-gK-YaR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="map" destination="lTf-33-NLn" id="wz0-2q-AvR"/>
                     </connections>

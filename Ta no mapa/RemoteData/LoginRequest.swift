@@ -30,7 +30,7 @@ class LoginRequest {
             do {
                 
                 if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 403 {
+                    if httpResponse.statusCode != 200 {
                         errorResponse("Usuário inválido")
                         return
                     }
@@ -40,8 +40,6 @@ class LoginRequest {
                 let sliced = String((str?.dropFirst(5))!)
                 let finalData = sliced.data(using: String.Encoding.utf8)
                 let decoded = try JSONDecoder().decode(LoginModel.Response.self, from: finalData!)
-                
-                Session.shared.data = decoded
                 
                 success(decoded)
             } catch {
