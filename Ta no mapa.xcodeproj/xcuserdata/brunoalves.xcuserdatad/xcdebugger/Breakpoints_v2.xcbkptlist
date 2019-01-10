@@ -9,109 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ta no mapa/RemoteData/LocalizationRequest.swift"
-            timestampString = "568778734.034269"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "postNewLocation(localization:success:errorResponse:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Ta no mapa/Modules/Insert/ConfirmInsertionViewController.swift"
-            timestampString = "568778734.034343"
+            timestampString = "568780325.381564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "postLocation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ta no mapa/RemoteData/LocalizationRequest.swift"
-            timestampString = "568778734.034389"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "postNewLocation(localization:success:errorResponse:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ta_no_mapa.LocalizationRequest.postNewLocation(localization: Ta_no_mapa.LocalizationModel, success: () -&gt; (), errorResponse: (Swift.String) -&gt; ()) -&gt; ()"
-                  moduleName = "Ta no mapa"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/brunoalves/Documents/on_the_map/Ta%20no%20mapa/RemoteData/LocalizationRequest.swift"
-                  timestampString = "568778734.240893"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "1493">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Ta_no_mapa.LocalizationRequest.postNewLocation(localization: Ta_no_mapa.LocalizationModel, success: () -&gt; (), errorResponse: (Swift.String) -&gt; ()) -&gt; ()"
-                  moduleName = "Ta no mapa"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/brunoalves/Documents/on_the_map/Ta%20no%20mapa/RemoteData/LocalizationRequest.swift"
-                  timestampString = "568778734.242491"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "62">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ta no mapa/RemoteData/LocalizationRequest.swift"
-            timestampString = "568778734.03443"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "postNewLocation(localization:success:errorResponse:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ta no mapa/RemoteData/LocalizationRequest.swift"
-            timestampString = "568778734.034547"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "postNewLocation(localization:success:errorResponse:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

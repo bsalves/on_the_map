@@ -24,20 +24,27 @@ class ConfirmInsertionViewController: UIViewController {
     private func loadPinOnMap() {
         let point = MKPointAnnotation()
         point.coordinate = CLLocationCoordinate2D(latitude: localization.latitude!, longitude: localization.longitude!)
-        point.title = "\(String(describing: localization.firstName)) \(String(describing: localization.lastName))"
+        point.title = "\(String(describing: localization.firstName!)) \(String(describing: localization.lastName!))"
         point.subtitle = localization.mediaURL
         map.addAnnotation(point)
         
         let zoomLocation = CLLocationCoordinate2D(latitude: localization.latitude!, longitude: localization.longitude!)
         let viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 200, 200)
         map.setRegion(viewRegion, animated: false)
+        
+        map.selectAnnotation(point, animated: true)
     }
     
     private func postLocation() {
         localizationRequest.postNewLocation(localization: localization, success: { [unowned self] in
             self.dismiss(animated: true, completion: nil)
         }) { (_) in
-            // alert
+            let alert = UIAlertController(title: nil, message: "Erro ao enviar sua localização. Deseja tentar novamente?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default, handler: { [unowned self] (_) in
+                self.postLocation()
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
@@ -47,17 +54,24 @@ class ConfirmInsertionViewController: UIViewController {
 }
 
 extension ConfirmInsertionViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let link = view.annotation?.subtitle {
-            let url = URL(string: link!)
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        }
-    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "newPin")
         pinAnnotationView.pinTintColor = .purple
         pinAnnotationView.animatesDrop = true
+        pinAnnotationView.canShowCallout = true
+        
+        let calloutButton = UIButton(type: .detailDisclosure)
+        pinAnnotationView.rightCalloutAccessoryView = calloutButton
+        pinAnnotationView.sizeToFit()
+        
         return pinAnnotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let url = URL(string: (view.annotation?.subtitle!)!)
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
     }
 }

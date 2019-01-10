@@ -66,19 +66,23 @@ class MapViewController: BaseViewController {
 
 extension MapViewController: MKMapViewDelegate {
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let link = view.annotation?.subtitle {
-            let url = URL(string: link!)
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let url = URL(string: (view.annotation?.subtitle!)!)
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
+        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "mapPin")
         
         pinAnnotationView.pinTintColor = .purple
         pinAnnotationView.animatesDrop = true
         pinAnnotationView.canShowCallout = true
+        
+        let calloutButton = UIButton(type: .detailDisclosure)
+        pinAnnotationView.rightCalloutAccessoryView = calloutButton
+        pinAnnotationView.sizeToFit()
         
         return pinAnnotationView
     }
