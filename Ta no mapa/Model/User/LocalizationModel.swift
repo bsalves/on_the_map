@@ -1,16 +1,15 @@
 //
-//  UsersResultModel.swift
+//  LocalizationModel.swift
 //  Ta no mapa
 //
-//  Created by Bruno Alves on 08/01/19.
+//  Created by Bruno Alves on 09/01/19.
 //  Copyright © 2019 Bruno Alves. All rights reserved.
 //
 
 import Foundation
 
-struct UsersResultModel: Codable {
+struct LocalizationModel: Codable {
     
-    var objectId: String?
     var uniqueKey: String?
     var firstName: String?
     var lastName: String?

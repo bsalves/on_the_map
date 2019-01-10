@@ -8,37 +8,42 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
-    
-    lazy var usersRequest = UsersRequest()
-    var users: UsersModel?
+class ListViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
-        loadUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadUsers()
     }
     
     private func loadUsers() {
         usersRequest.users(success: { [unowned self] (users) in
-            //
             self.users = users
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }) { (error) in
-            //
-            print("Deu erro")
+        }) { [unowned self] (error) in
+            self.displayError(withAction: {
+                self.loadUsers()
+            })
         }
     }
     
-    @IBAction func logout(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    private func reloadUsers() {
+        self.users = nil
+        tableView.reloadData()
+        loadUsers()
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        self.reloadUsers()
     }
     
 }

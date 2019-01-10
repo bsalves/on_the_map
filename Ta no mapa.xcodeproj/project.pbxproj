@@ -22,9 +22,14 @@
 		393DC3C221E4216100918B8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DC3C121E4216100918B8C /* LoginViewController.swift */; };
 		393DC3C421E4307100918B8C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DC3C321E4307100918B8C /* Session.swift */; };
 		393DC3C621E432FF00918B8C /* UsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DC3C521E432FF00918B8C /* UsersRequest.swift */; };
+		39BF015F21E6C92A0065B51F /* InsertLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BF015E21E6C92A0065B51F /* InsertLocationViewController.swift */; };
+		39BF016121E6CC4E0065B51F /* ConfirmInsertionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BF016021E6CC4E0065B51F /* ConfirmInsertionViewController.swift */; };
+		39BF016321E6CC960065B51F /* LocalizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BF016221E6CC960065B51F /* LocalizationModel.swift */; };
+		39BF016521E6CD5F0065B51F /* LocalizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BF016421E6CD5F0065B51F /* LocalizationRequest.swift */; };
 		39EF407221E57FFA002B2B59 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF407121E57FFA002B2B59 /* UsersModel.swift */; };
 		39EF407421E58018002B2B59 /* UsersResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF407321E58018002B2B59 /* UsersResultModel.swift */; };
 		39EF407621E59059002B2B59 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF407521E59059002B2B59 /* ListViewController.swift */; };
+		39FBA40521E6B6580089A764 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FBA40421E6B6580089A764 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +71,14 @@
 		393DC3C121E4216100918B8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		393DC3C321E4307100918B8C /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		393DC3C521E432FF00918B8C /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
+		39BF015E21E6C92A0065B51F /* InsertLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertLocationViewController.swift; sourceTree = "<group>"; };
+		39BF016021E6CC4E0065B51F /* ConfirmInsertionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmInsertionViewController.swift; sourceTree = "<group>"; };
+		39BF016221E6CC960065B51F /* LocalizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationModel.swift; sourceTree = "<group>"; };
+		39BF016421E6CD5F0065B51F /* LocalizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationRequest.swift; sourceTree = "<group>"; };
 		39EF407121E57FFA002B2B59 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		39EF407321E58018002B2B59 /* UsersResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResultModel.swift; sourceTree = "<group>"; };
 		39EF407521E59059002B2B59 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		39FBA40421E6B6580089A764 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +162,11 @@
 		393DC3A821E4176700918B8C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				39FBA40421E6B6580089A764 /* BaseViewController.swift */,
 				393DC3AE21E41AAB00918B8C /* Login */,
 				393DC3A921E4177200918B8C /* Map */,
-				39EF407521E59059002B2B59 /* ListViewController.swift */,
+				39FBA40621E6B72A0089A764 /* List */,
+				39BF015C21E6C9000065B51F /* Insert */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -170,18 +182,10 @@
 		393DC3AE21E41AAB00918B8C /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				393DC3AF21E41ABE00918B8C /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		393DC3AF21E41ABE00918B8C /* View */ = {
-			isa = PBXGroup;
-			children = (
 				393DC3AC21E4199900918B8C /* Login.storyboard */,
 				393DC3C121E4216100918B8C /* LoginViewController.swift */,
 			);
-			path = View;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		393DC3B221E41ADB00918B8C /* Model */ = {
@@ -201,6 +205,7 @@
 				393DC3B721E41C1100918B8C /* AccountModel.swift */,
 				39EF407121E57FFA002B2B59 /* UsersModel.swift */,
 				39EF407321E58018002B2B59 /* UsersResultModel.swift */,
+				39BF016221E6CC960065B51F /* LocalizationModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -210,8 +215,26 @@
 			children = (
 				393DC3BD21E41C9800918B8C /* LoginRequest.swift */,
 				393DC3C521E432FF00918B8C /* UsersRequest.swift */,
+				39BF016421E6CD5F0065B51F /* LocalizationRequest.swift */,
 			);
 			path = RemoteData;
+			sourceTree = "<group>";
+		};
+		39BF015C21E6C9000065B51F /* Insert */ = {
+			isa = PBXGroup;
+			children = (
+				39BF015E21E6C92A0065B51F /* InsertLocationViewController.swift */,
+				39BF016021E6CC4E0065B51F /* ConfirmInsertionViewController.swift */,
+			);
+			path = Insert;
+			sourceTree = "<group>";
+		};
+		39FBA40621E6B72A0089A764 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				39EF407521E59059002B2B59 /* ListViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +369,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FBA40521E6B6580089A764 /* BaseViewController.swift in Sources */,
+				39BF016521E6CD5F0065B51F /* LocalizationRequest.swift in Sources */,
 				393DC3B821E41C1100918B8C /* AccountModel.swift in Sources */,
+				39BF015F21E6C92A0065B51F /* InsertLocationViewController.swift in Sources */,
 				393DC3C621E432FF00918B8C /* UsersRequest.swift in Sources */,
 				39EF407621E59059002B2B59 /* ListViewController.swift in Sources */,
 				393DC37B21E415D600918B8C /* AppDelegate.swift in Sources */,
@@ -356,6 +382,8 @@
 				39EF407421E58018002B2B59 /* UsersResultModel.swift in Sources */,
 				393DC3AB21E4178800918B8C /* MapViewController.swift in Sources */,
 				393DC3BE21E41C9800918B8C /* LoginRequest.swift in Sources */,
+				39BF016321E6CC960065B51F /* LocalizationModel.swift in Sources */,
+				39BF016121E6CC4E0065B51F /* ConfirmInsertionViewController.swift in Sources */,
 				39EF407221E57FFA002B2B59 /* UsersModel.swift in Sources */,
 				393DC3C421E4307100918B8C /* Session.swift in Sources */,
 			);

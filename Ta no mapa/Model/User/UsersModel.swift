@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UsersModel: Codable {
+struct UsersModel: Codable {
     
     var results: [UsersResultModel]?
     

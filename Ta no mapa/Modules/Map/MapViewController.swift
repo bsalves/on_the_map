@@ -9,32 +9,34 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: BaseViewController {
     
     // MARK: Outlets
     
     @IBOutlet weak var map: MKMapView!
     
-    lazy var usersRequest = UsersRequest()
-    var users: UsersModel?
     var annotations: [MKPointAnnotation]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         map.delegate = self
-        loadUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadUsers()
     }
     
     private func loadUsers() {
         usersRequest.users(success: { [unowned self] (users) in
-            //
             self.users = users
             DispatchQueue.main.async {
                 self.putPointsOnMap()
             }
-        }) { (error) in
-            //
-            print("Deu erro")
+        }) { [unowned self] (error) in
+            self.displayError(withAction: {
+                self.loadUsers()
+            })
         }
     }
     
@@ -47,13 +49,18 @@ class MapViewController: UIViewController {
                 point.subtitle = user.mediaURL
                 map.addAnnotation(point)
             }
-            
         })
-        
     }
     
-    @IBAction func logout(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    private func reloadUsers() {
+        map.annotations.forEach { (annotation) in
+            map.removeAnnotation(annotation)
+        }
+        loadUsers()
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        self.reloadUsers()
     }
 }
 

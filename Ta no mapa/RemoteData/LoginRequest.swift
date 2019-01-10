@@ -41,6 +41,9 @@ class LoginRequest {
                 let finalData = sliced.data(using: String.Encoding.utf8)
                 let decoded = try JSONDecoder().decode(LoginModel.Response.self, from: finalData!)
                 
+                Session.shared.account = decoded.account
+                Session.shared.session = decoded.session
+                
                 success(decoded)
             } catch {
             }
