@@ -39,7 +39,7 @@ class LoginViewController: UITableViewController {
         loginRequest.login(username: username.text ?? "", password: password.text ?? "", success: { [unowned self] (response) in
             self.success()
         }, errorResponse: { (error) in
-            let alert = UIAlertController(title: nil, message: "Login inválido", preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: {
                 self.resetLoginForm()

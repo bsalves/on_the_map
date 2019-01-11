@@ -46,7 +46,7 @@ class LoginRequest {
                 
                 success(decoded)
             } catch {
-                errorResponse("Erro")
+                errorResponse("Erro ao tentar se logar. Tente novamente.")
             }
         }
         task.resume()
