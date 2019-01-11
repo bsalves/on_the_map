@@ -49,15 +49,16 @@ class MapViewController: BaseViewController {
     private func putPointsOnMap() {
         users?.results?.forEach({ (user) in
             if user.latitude != nil || user.longitude != nil {
-                let point = MKPointAnnotation()
-                let latitude = user.latitude ?? 0
-                let longitude = user.longitude ?? 0
-                point.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                let firstName = user.firstName ?? ""
-                let lastName = user.lastName ?? ""
-                point.title = "\(firstName) \(lastName)"
-                point.subtitle = user.mediaURL
-                map.addAnnotation(point)
+                if let latitude = user.latitude, let longitude = user.longitude {
+                    let point = MKPointAnnotation()
+                    point.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    let firstName = user.firstName ?? ""
+                    let lastName = user.lastName ?? ""
+                    point.title = "\(firstName) \(lastName)"
+                    point.subtitle = user.mediaURL
+                    map.addAnnotation(point)
+                }
+                
             }
         })
     }
