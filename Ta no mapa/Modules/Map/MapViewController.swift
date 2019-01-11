@@ -15,8 +15,12 @@ class MapViewController: BaseViewController {
     
     @IBOutlet weak var map: MKMapView!
     
+    // MARK: Properties
+    
     var annotations: [MKPointAnnotation]?
 
+    //MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         map.delegate = self
@@ -26,6 +30,8 @@ class MapViewController: BaseViewController {
         super.viewWillAppear(animated)
         reloadUsers()
     }
+    
+    // MARK: Private functions
     
     private func loadUsers() {
         usersRequest.users(success: { [unowned self] (users) in
@@ -44,8 +50,12 @@ class MapViewController: BaseViewController {
         users?.results?.forEach({ (user) in
             if user.latitude != nil || user.longitude != nil {
                 let point = MKPointAnnotation()
-                point.coordinate = CLLocationCoordinate2D(latitude: user.latitude!, longitude: user.longitude!)
-                point.title = "\(user.lastName!)"
+                let latitude = user.latitude ?? 0
+                let longitude = user.longitude ?? 0
+                point.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                let firstName = user.firstName ?? ""
+                let lastName = user.lastName ?? ""
+                point.title = "\(firstName) \(lastName)"
                 point.subtitle = user.mediaURL
                 map.addAnnotation(point)
             }
@@ -59,10 +69,14 @@ class MapViewController: BaseViewController {
         loadUsers()
     }
     
+    // MARK: IBActions
+    
     @IBAction func refresh(_ sender: Any) {
         self.reloadUsers()
     }
 }
+
+// MARK: MapView Delegates
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -75,7 +89,6 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "mapPin")
-        
         pinAnnotationView.pinTintColor = .purple
         pinAnnotationView.animatesDrop = true
         pinAnnotationView.canShowCallout = true

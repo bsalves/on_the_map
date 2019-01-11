@@ -29,11 +29,11 @@
             </objects>
             <point key="canvasLocation" x="-1329" y="-281"/>
         </scene>
-        <!--Item-->
+        <!--Lista-->
         <scene sceneID="WS4-8F-yXd">
             <objects>
                 <navigationController id="NTp-vN-umg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="g94-vI-Vgb"/>
+                    <tabBarItem key="tabBarItem" title="Lista" image="icon_listview-deselected" id="g94-vI-Vgb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SJm-8e-Mrb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -46,11 +46,11 @@
             </objects>
             <point key="canvasLocation" x="-402" y="80"/>
         </scene>
-        <!--lista-->
+        <!--Mapa-->
         <scene sceneID="KDK-KV-4gV">
             <objects>
                 <navigationController id="hzo-hU-88f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="lista" id="8Oi-De-YOg"/>
+                    <tabBarItem key="tabBarItem" title="Mapa" image="icon_mapview-deselected" id="8Oi-De-YOg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OaG-2X-t8C">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -240,6 +240,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="insert" destination="rWf-hc-DeA" id="UGT-Cy-3hw"/>
                         <outlet property="lastName" destination="vqJ-LP-2Ju" id="ILI-Nl-cVE"/>
                         <outlet property="link" destination="z60-XD-JQ4" id="Zlw-ip-dVu"/>
                         <outlet property="locale" destination="gv4-rl-hKj" id="49Q-QX-USX"/>
@@ -288,6 +289,7 @@
                         <viewLayoutGuide key="safeArea" id="lI1-Y4-dmb"/>
                     </view>
                     <connections>
+                        <outlet property="confirm" destination="kzz-1p-iCW" id="daF-QR-JwP"/>
                         <outlet property="map" destination="DmY-7X-pNI" id="HcZ-rD-EdG"/>
                     </connections>
                 </viewController>
@@ -383,6 +385,10 @@
             <point key="canvasLocation" x="316" y="-609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RZW-i3-Ec4"/>
     </inferredMetricsTieBreakers>

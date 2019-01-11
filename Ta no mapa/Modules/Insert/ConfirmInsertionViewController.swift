@@ -14,6 +14,7 @@ class ConfirmInsertionViewController: UIViewController {
     var localization: LocalizationModel!
     lazy var localizationRequest = LocalizationRequest()
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var confirm: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +37,15 @@ class ConfirmInsertionViewController: UIViewController {
     }
     
     private func postLocation() {
+        self.confirm.isEnabled = false
+        self.confirm.setTitle("Postando localização...", for: .disabled)
         localizationRequest.postNewLocation(localization: localization, success: { [unowned self] in
+            self.confirm.isEnabled = true
             self.dismiss(animated: true, completion: nil)
         }) { (_) in
+            DispatchQueue.main.async {
+                self.confirm.isEnabled = true
+            }
             let alert = UIAlertController(title: nil, message: "Erro ao enviar sua localização. Deseja tentar novamente?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default, handler: { [unowned self] (_) in

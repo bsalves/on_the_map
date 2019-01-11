@@ -8,11 +8,10 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UITableViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var connectButton: UIButton!
     
     lazy var loginRequest = LoginRequest()
@@ -35,8 +34,6 @@ class LoginViewController: UIViewController {
     
     private func resetLoginForm() {
         DispatchQueue.main.async {
-            self.loading.stopAnimating()
-            self.loading.isHidden = true
             self.connectButton.isEnabled = true
             self.username.text = ""
             self.password.text = ""
@@ -45,9 +42,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
-        loading.isHidden = false
-        loading.startAnimating()
-        connectButton.setTitle("Conectando...", for: .disabled)
+        connectButton.setTitle("Entrando...", for: .disabled)
         connectButton.isEnabled = false
         
         loginRequest.login(username: username.text ?? "", password: password.text ?? "", success: { [unowned self] (response) in
@@ -58,7 +53,6 @@ class LoginViewController: UIViewController {
             self.present(alert, animated: true, completion: {
                 self.resetLoginForm()
             })
-            
         })
     }
 }

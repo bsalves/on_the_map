@@ -10,7 +10,11 @@ import UIKit
 
 class ListViewController: BaseViewController {
     
+    // MARK: IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,8 @@ class ListViewController: BaseViewController {
         super.viewWillAppear(animated)
         reloadUsers()
     }
+    
+    // MARK: Private functions
     
     private func loadUsers() {
         usersRequest.users(success: { [unowned self] (users) in
@@ -42,11 +48,15 @@ class ListViewController: BaseViewController {
         loadUsers()
     }
     
+    // MARK: IBActions
+    
     @IBAction func refresh(_ sender: Any) {
         self.reloadUsers()
     }
     
 }
+
+// MARK: TableView Delegates
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,6 +73,8 @@ extension ListViewController: UITableViewDelegate {
         UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
 }
+
+// MARK: TableView DataSources
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

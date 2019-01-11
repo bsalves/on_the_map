@@ -46,10 +46,10 @@ class LoginRequest {
                 
                 success(decoded)
             } catch {
+                errorResponse("Erro")
             }
         }
         task.resume()
-        
     }
     
 }

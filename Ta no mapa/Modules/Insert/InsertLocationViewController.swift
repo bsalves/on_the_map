@@ -15,6 +15,7 @@ class InsertLocationViewController: UITableViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var link: UITextField!
     @IBOutlet weak var locale: UITextField!
+    @IBOutlet weak var insert: UIButton!
     
     var localization: LocalizationModel!
     
@@ -58,17 +59,29 @@ class InsertLocationViewController: UITableViewController {
     
     @IBAction func insert(_ sender: Any) {
         if self.isValidFields() {
+            insert.setTitle("Buscando endereço...", for: .disabled)
+            insert.isEnabled = false
             searchLocale(success: { [unowned self] in
+                DispatchQueue.main.async {
+                    self.insert.isEnabled = true
+                }
                 self.localization.firstName = self.name.text
                 self.localization.lastName = self.lastName.text
                 self.localization.mapString = self.locale.text
                 self.localization.mediaURL = self.link.text
                 self.performSegue(withIdentifier: "confirm", sender: nil)
             }) { [unowned self] in
+                DispatchQueue.main.async {
+                    self.insert.isEnabled = true
+                }
                 let alert = UIAlertController(title: nil, message: "Endereço não identificado.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+        } else {
+            let alert = UIAlertController(title: nil, message: "Preencha todos os campos.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
