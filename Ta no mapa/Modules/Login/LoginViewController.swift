@@ -16,15 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var connectButton: UIButton!
     
     lazy var loginRequest = LoginRequest()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        #if DEBUG
-        username.text = "brusznah@live.com"
-        password.text = "bruS2nah."
-        #endif
-    }
     
     private func success() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
