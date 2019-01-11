@@ -30,11 +30,7 @@ class LocalizationRequest {
                 errorResponse(error!.localizedDescription)
                 return
             }
-            do {
-                success()
-            } catch {
-                errorResponse("Deu error")
-            }
+            success()
         }
         task.resume()
     }
