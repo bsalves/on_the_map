@@ -32,7 +32,7 @@ class UsersRequest {
                 let decoded = try JSONDecoder().decode(UsersModel.self, from: data!)
                 success(decoded)
             } catch {
-                errorResponse("Deu error")
+                errorResponse("Erro ao baixar os dados do servidor.")
             }
         }
         task.resume()
@@ -70,7 +70,7 @@ class UsersRequest {
                     }
                 }
             } catch {
-                errorResponse("Deu error")
+                errorResponse("Erro ao baixar os dados so servidor.")
             }
         }
         task.resume()
