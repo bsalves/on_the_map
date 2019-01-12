@@ -40,7 +40,9 @@ class ConfirmInsertionViewController: UIViewController {
         self.confirm.isEnabled = false
         self.confirm.setTitle("Postando localização...", for: .disabled)
         localizationRequest.postNewLocation(localization: localization, success: { [unowned self] in
-            self.confirm.isEnabled = true
+            DispatchQueue.main.async {
+                self.confirm.isEnabled = true
+            }
             self.dismiss(animated: true, completion: nil)
         }) { (_) in
             DispatchQueue.main.async {
