@@ -38,18 +38,24 @@ class InsertLocationViewController: UITableViewController {
     
     private func searchLocale(success: @escaping () -> Void, finishedWithError: @escaping () -> Void) {
         if let locale = locale.text {
+            
+            let loading = UIAlertController(title: "Carregando...", message: nil, preferredStyle: .alert)
+            self.present(loading, animated: true, completion: nil)
+            
             let geoCoder = CLGeocoder()
-            geoCoder.geocodeAddressString(locale) { (placemarks, error) in
+            geoCoder.geocodeAddressString(locale) { [unowned self] (placemarks, error) in
                 guard
                     let placemarks = placemarks,
                     let location = placemarks.first?.location
                     else {
                         finishedWithError()
+                        loading.dismiss(animated: true, completion: nil)
                         return
                 }
                 self.localization.latitude = location.coordinate.latitude
                 self.localization.longitude = location.coordinate.longitude
                 success()
+                loading.dismiss(animated: true, completion: nil)
                 return
             }
         } else {

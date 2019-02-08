@@ -11,6 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
 
     lazy var usersRequest = UsersRequest()
+    lazy var loginRequest = LoginRequest()
     var users: UsersModel?
         
     func displayError(withAction: @escaping () -> ()) {
@@ -23,7 +24,11 @@ class BaseViewController: UIViewController {
     }
     
     func logoutAction() {
-        self.dismiss(animated: true, completion: nil)
+        loginRequest.logout(success: { [unowned self] in
+            self.dismiss(animated: true, completion: nil)
+        }) { [unowned self] in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func insertLocation() {
@@ -52,5 +57,9 @@ class BaseViewController: UIViewController {
 
     @IBAction func addLocation(_ sender: Any) {
         self.insertLocation()
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        self.logoutAction()
     }
 }

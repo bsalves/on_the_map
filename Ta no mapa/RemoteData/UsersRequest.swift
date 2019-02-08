@@ -12,7 +12,13 @@ class UsersRequest {
     
     func users(success: @escaping (UsersModel) -> Void, errorResponse: @escaping (String) -> Void) {
         
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        
+        let limitDictionary = ["limit" : "100", "order" : "-updatedAt"]
+        let components = NSURLComponents()
+        components.queryItems = limitDictionary.map { URLQueryItem(name: $0, value: String($1)) }
+        
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?" + (components.percentEncodedQuery ?? ""))!)
+        
         request.httpMethod = "GET"
         request.addValue(Session.shared.XParseApplicationId, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(Session.shared.XParseRESTAPIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")

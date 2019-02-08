@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -321,16 +322,23 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="fVh-mc-wLo"/>
                     <navigationItem key="navigationItem" title="Ta no mapa" id="vWw-Gn-5p3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="rd7-L1-6P1">
+                        <barButtonItem key="leftBarButtonItem" title="Sair" id="RML-ZM-hpj">
                             <connections>
-                                <action selector="addLocation:" destination="KuK-w5-AyX" id="dMV-9k-b5t"/>
+                                <action selector="logout:" destination="KuK-w5-AyX" id="9je-uz-4mn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="gdf-f7-UoT">
-                            <connections>
-                                <action selector="refresh:" destination="KuK-w5-AyX" id="aaQ-kh-oqf"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="gdf-f7-UoT">
+                                <connections>
+                                    <action selector="refresh:" destination="KuK-w5-AyX" id="aaQ-kh-oqf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="rd7-L1-6P1">
+                                <connections>
+                                    <action selector="addLocation:" destination="KuK-w5-AyX" id="dMV-9k-b5t"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="bcK-Vp-9Iu" id="ehQ-y4-u3y"/>
@@ -364,16 +372,23 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="gZd-Vx-jBl"/>
                     <navigationItem key="navigationItem" title="Ta no mapa" id="jeu-TL-enC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="v3t-4f-a7J">
+                        <barButtonItem key="leftBarButtonItem" title="Sair" id="gR2-EG-qoA">
                             <connections>
-                                <action selector="addLocation:" destination="gCb-C8-1kG" id="K48-Gk-DAE"/>
+                                <action selector="logout:" destination="gCb-C8-1kG" id="wo6-NU-Koh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="sLw-0c-Xgf">
-                            <connections>
-                                <action selector="refresh:" destination="gCb-C8-1kG" id="w2Y-f8-2zX"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="sLw-0c-Xgf">
+                                <connections>
+                                    <action selector="refresh:" destination="gCb-C8-1kG" id="w2Y-f8-2zX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="v3t-4f-a7J">
+                                <connections>
+                                    <action selector="addLocation:" destination="gCb-C8-1kG" id="K48-Gk-DAE"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="map" destination="lTf-33-NLn" id="wz0-2q-AvR"/>
@@ -390,6 +405,6 @@
         <image name="icon_mapview-deselected" width="75" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RZW-i3-Ec4"/>
+        <segue reference="NGx-8R-IOG"/>
     </inferredMetricsTieBreakers>
 </document>
